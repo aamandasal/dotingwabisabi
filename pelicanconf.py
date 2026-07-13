@@ -27,7 +27,8 @@ ARTICLE_SAVE_AS = '{slug}/index.html'
 PAGE_URL = '{slug}/'
 PAGE_SAVE_AS = '{slug}/index.html'
 
-STATIC_PATHS = ['images']
+STATIC_PATHS = ['images', 'extra/CNAME']
+EXTRA_PATH_METADATA = {'extra/CNAME':{'path': 'CNAME'}}
 DEFAULT_PAGINATION = 8
 
 FEED_ALL_ATOM = None

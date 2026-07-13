@@ -5,7 +5,7 @@ sys.path.append(os.curdir)
 from pelicanconf import *
 
 # >>> EDITA: el dominio real cuando lo compre <<<
-SITEURL = "https://ejemplo.com"
+SITEURL = "https://dotingwabisabi.com"
 
 RELATIVE_URLS = False
 DELETE_OUTPUT_DIRECTORY = True
