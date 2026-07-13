@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+
+<figure style="margin: 0 auto 40px; max-width: 460px;">
+    <img src="{{ SITEURL }}/theme/images/portada.jpg" alt="Flor prensada" style="width:100%; display:block;">
+    <figcaption style="text-align:center; font-style:italic; font-size:13px; color:#5C5348; margin-top:8px;">Fotografía de Jannet Serhan</figcaption>
+</figure>
+
+<section class="entry-list">
+    {% for article in articles_page.object_list %}
+    <article class="entry">
+        <p class="entry-meta">{{ article.date.strftime('%d de %B, %Y') }}{% if article.category %} &middot; <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>{% endif %}</p>
+        <h2 class="entry-title"><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
+        {% if article.summary %}<p class="entry-summary">{{ article.summary }}</p>{% endif %}
+        <a class="read-more" href="{{ SITEURL }}/{{ article.url }}">seguir leyendo</a>
+    </article>
+    {% if not loop.last %}<div class="entry-sep" aria-hidden="true">&#8258;</div>{% endif %}
+    {% endfor %}
+</section>
+
+{% if articles_page.has_other_pages() %}
+<nav class="pager">
+    {% if articles_page.has_previous() %}<a href="{{ SITEURL }}/{{ articles_previous_page.url }}">&larr; m&aacute;s recientes</a>{% endif %}
+    {% if articles_page.has_next() %}<a href="{{ SITEURL }}/{{ articles_next_page.url }}">anteriores &rarr;</a>{% endif %}
+</nav>
+{% endif %}
+
+{% endblock content %}

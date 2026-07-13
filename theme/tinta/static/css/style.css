@@ -1,0 +1,207 @@
+/* ===========================================================================
+   LA CASA DE TINTA · Hoja de estilo literaria
+   ---------------------------------------------------------------------------
+   Inspirada en The Marginalian y The Paris Review: papel crema cálido,
+   EB Garamond (la serif de los libros bien editados), acento rojo tinto,
+   ornamentos tipográficos, y tratamiento especial para POESÍA.
+
+   ¿Quieres cambiar el diseño? Casi todo está en la ZONA DE PERSONALIZACIÓN.
+   =========================================================================== */
+
+/* --- FUENTES auto-hospedadas (variables: un archivo, todos los pesos) --- */
+@font-face { font-family:'EB Garamond'; font-style:normal;
+    src:url('../fonts/EBGaramond.ttf') format('truetype'); font-weight:400 800; font-display:swap; }
+@font-face { font-family:'EB Garamond'; font-style:italic;
+    src:url('../fonts/EBGaramond-Italic.ttf') format('truetype'); font-weight:400 800; font-display:swap; }
+@font-face { font-family:'Cormorant'; font-style:normal;
+    src:url('../fonts/Cormorant.ttf') format('truetype'); font-weight:300 700; font-display:swap; }
+@font-face { font-family:'Cormorant'; font-style:italic;
+    src:url('../fonts/Cormorant-Italic.ttf') format('truetype'); font-weight:300 700; font-display:swap; }
+
+/* ===========================================================================
+   ▼▼▼  ZONA DE PERSONALIZACIÓN — edita libremente aquí  ▼▼▼
+   =========================================================================== */
+:root {
+    /* --- COLORES --- */
+    --papel:      #F5F0E6;   /* crema cálido, como página de libro viejo */
+    --papel-alto: #EDE6D8;   /* crema un tono más profundo */
+    --tinta:      #2A2119;   /* sepia oscuro, no negro puro */
+    --tinta-suave:#5C5348;   /* texto secundario */
+    --tinto:      #8E2F35;   /* rojo tinto editorial (acento principal) */
+    --dorado:     #A88732;   /* dorado viejo (ornamentos) */
+    --filo:       #D5CBB8;   /* líneas divisorias */
+
+    /* --- TIPOGRAFÍAS --- */
+    --display: 'Cormorant', Georgia, serif;      /* títulos */
+    --cuerpo:  'EB Garamond', Georgia, serif;    /* todo el texto */
+
+    /* --- MEDIDAS --- */
+    --ancho: 640px;          /* ancho de lectura (angosto, como un libro) */
+    --tamano: 20px;          /* tamaño base (generoso, para leer despacio) */
+}
+/* ===========================================================================
+   ▲▲▲  FIN DE LA ZONA DE PERSONALIZACIÓN  ▲▲▲
+   =========================================================================== */
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    background: var(--papel);
+    color: var(--tinta);
+    font-family: var(--cuerpo);
+    font-size: var(--tamano);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--tinto); text-decoration: none; border-bottom: 1px solid rgba(142,47,53,0.35); }
+a:hover { border-bottom-color: var(--tinto); }
+
+.page { max-width: var(--ancho); margin: 0 auto; padding: 0 24px; }
+
+/* ---- cabecera --------------------------------------------------------- */
+.site-header { text-align: center; padding: 52px 0 8px; }
+.brand {
+    font-family: var(--display);
+    font-size: 42px; font-weight: 600; letter-spacing: 0.04em;
+    color: var(--tinta); border-bottom: none;
+}
+.brand:hover { color: var(--tinto); }
+.brand-sub {
+    font-style: italic; color: var(--tinta-suave);
+    font-size: 17px; margin: 8px 0 20px;
+}
+.site-nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 6px 26px; }
+.site-nav a {
+    font-family: var(--cuerpo); font-size: 15px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--tinta-suave); border-bottom: none;
+}
+.site-nav a:hover { color: var(--tinto); }
+
+/* ---- ornamento: el fleurón -------------------------------------------- */
+.fleuron {
+    text-align: center; color: var(--dorado);
+    font-size: 22px; padding: 26px 0;
+    user-select: none;
+}
+
+/* ---- portada: lista de entradas --------------------------------------- */
+.entry { text-align: center; padding: 6px 0 10px; }
+.entry-meta {
+    font-size: 14px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--tinta-suave); margin: 0 0 10px;
+}
+.entry-meta a { color: var(--tinto); border-bottom: none; }
+.entry-title {
+    font-family: var(--display);
+    font-size: 34px; font-weight: 600; line-height: 1.2;
+    margin: 0 0 12px;
+}
+.entry-title a { color: var(--tinta); border-bottom: none; }
+.entry-title a:hover { color: var(--tinto); }
+.entry-summary {
+    color: var(--tinta-suave); font-size: 19px;
+    max-width: 48ch; margin: 0 auto 12px; font-style: italic;
+}
+.read-more {
+    font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase;
+}
+.entry-sep {
+    text-align: center; color: var(--filo);
+    font-size: 20px; padding: 26px 0;
+    user-select: none;
+}
+
+.pager {
+    display: flex; justify-content: space-between;
+    font-size: 15px; font-style: italic; padding: 20px 0 30px;
+}
+
+/* ---- entrada individual ------------------------------------------------ */
+.post-header { text-align: center; margin-bottom: 34px; }
+.post-title {
+    font-family: var(--display);
+    font-size: 42px; font-weight: 600; line-height: 1.15;
+    margin: 10px 0 0;
+}
+.post-body { font-size: var(--tamano); }
+.post-body p { margin: 0 0 24px; }
+.post-body h2 {
+    font-family: var(--display); font-weight: 600; font-size: 30px;
+    text-align: center; margin: 46px 0 18px;
+}
+.post-body h3 { font-family: var(--display); font-weight: 600; font-size: 24px; margin: 34px 0 14px; }
+.post-body blockquote {
+    margin: 30px 24px; padding: 0;
+    color: var(--tinta-suave); font-style: italic; font-size: 21px;
+    text-align: center; line-height: 1.65;
+}
+.post-body blockquote::before { content: '❦'; display:block; color: var(--dorado); font-size: 16px; margin-bottom: 10px; font-style: normal; }
+.post-body img { max-width: 100%; display: block; margin: 30px auto; }
+.post-body hr {
+    border: none; text-align: center; margin: 40px 0;
+}
+.post-body hr::after {
+    content: '⁂'; color: var(--dorado); font-size: 18px;
+}
+
+/* ---- POESÍA ------------------------------------------------------------
+   Los versos son sagrados: se respetan los saltos de línea, se centra el
+   bloque, se airea el interlineado. En el post, envuelve el poema así:
+
+   <div class="poema">
+   Primer verso
+   segundo verso...
+   </div>
+--------------------------------------------------------------------------- */
+.poema {
+    white-space: pre-line;        /* respeta cada salto de línea */
+    text-align: center;
+    font-size: 21px;
+    line-height: 2.0;             /* aire entre versos */
+    margin: 36px auto;
+    max-width: 44ch;
+    font-style: normal;
+}
+.poema em { font-style: italic; }
+
+/* estrofa: separación mayor entre bloques del poema */
+.estrofa { margin-bottom: 34px; }
+
+/* ---- etiquetas ---------------------------------------------------------- */
+.post-tags { margin: 40px 0 0; text-align: center; }
+.tag {
+    font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--tinta-suave); border-bottom: none; margin: 0 10px;
+}
+.tag:hover { color: var(--tinto); }
+
+/* ---- archivo ------------------------------------------------------------ */
+.archive-row {
+    display: flex; gap: 20px; padding: 13px 0;
+    border-bottom: 1px solid var(--filo); color: var(--tinta);
+    align-items: baseline;
+}
+.archive-row:hover { color: var(--tinto); }
+.archive-date { font-size: 14px; color: var(--tinta-suave); flex-shrink: 0; width: 100px; }
+.archive-title { font-family: var(--display); font-weight: 600; font-size: 21px; }
+
+/* ---- pie ----------------------------------------------------------------- */
+.site-footer {
+    text-align: center; font-size: 14px; font-style: italic;
+    color: var(--tinta-suave); padding: 6px 0 52px;
+}
+
+a:focus-visible { outline: 2px solid var(--tinto); outline-offset: 2px; }
+
+/* ---- móvil ---------------------------------------------------------------- */
+@media (max-width: 560px) {
+    body { font-size: 18px; }
+    .brand { font-size: 32px; }
+    .post-title { font-size: 32px; }
+    .entry-title { font-size: 27px; }
+    .poema { font-size: 19px; }
+    .site-header { padding-top: 36px; }
+}
